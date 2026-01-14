@@ -1,50 +1,49 @@
-# "Hello, World!" website hosted on AWS
-IU Cloud Programming Project
+# "Hello, World!" Website on AWS
 
-This project demonstrates how to deploy a simple "Hello, World!" website using AWS and Terraform. The setup includes a scalable, globally distributed architecture with S3, CloudFront, and EC2.
+## Overview
+Deploy a simple "Hello, World!" website using AWS and Terraform. The project includes a scalable, globally distributed architecture with S3, CloudFront, and EC2.
 
 ## Features
-- **Static Website Hosting**: S3 bucket configured for hosting `index.html`.
-- **Global Distribution**: CloudFront serves the website globally for low latency.
-- **Dynamic Scaling**: Auto Scaling adjusts EC2 instances based on traffic.
-- **Infrastructure as Code**: Fully replicable using Terraform.
+- Static website hosting on S3
+- Global distribution with CloudFront
+- Auto Scaling for EC2 instances
+- Infrastructure as Code using Terraform
 
-## Prerequisites
-- An AWS account with appropriate permissions.
-- Terraform installed (v1.0+ recommended).
-- Git installed for cloning this repository.
+## Technologies
+- AWS (S3, CloudFront, EC2, Auto Scaling)
+- Terraform
+- HTML
 
-## Setup Instructions
+## Setup / Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/sabihadudhia/hello-world-website.git
+cd hello-world-website
+```
+2. Update configuration:
+- Open provider.tf and set AWS region if needed
+- Replace subnet IDs or other specific resource IDs with your own
+- Initialize and deploy with Terraform:
+```bash
+terraform init
+terraform plan
+terraform apply
+```
 
-1. **Clone the Repository**:
-   ```bash
-     git clone https://github.com/sabihadudhia/hello-world-website.git
-     cd hello-world-website
-   
-2. **Update Configuration**:
-    Open provider.tf and set the AWS region if needed.
-    Replace subnet IDs or other specific resource IDs with your own.
+## Usage
+- Access the website via the CloudFront URL or S3 endpoint provided in Terraform outputs
+- Modify index.html in the S3 bucket to change website content
 
-3. **Initialize and Deploy**:
-   ```bash
-    terraform init
-    terraform plan
-    terraform apply
+## Project Structure
+```bash
+├── provider.tf        # AWS provider configuration
+├── S3.tf              # S3 bucket setup
+├── CloudFront.tf      # CloudFront distribution setup
+├── EC2.tf             # EC2 and Auto Scaling configuration
+├── index.html         # Static HTML file
+└── README.md          # Documentation
+```
 
-4. **Access the Website**:
-    Note the CloudFront URL or S3 endpoint from the Terraform outputs.
-    Open the URL in your browser to view the website.
-
-5. **File Structure**:
-- `provider.tf`: AWS provider configuration.
-- `S3.tf`: S3 bucket setup for static website hosting.
-- `CloudFront.tf`: CloudFront distribution setup.
-- `EC2.tf`: EC2 instance and Auto Scaling configuration.
-- `index.html`: The static HTML file for the website.
-
-6. **Outputs**:
-- S3 Website Endpoint: The URL for direct S3 hosting.
-- CloudFront Distribution URL: The globally cached and secure website address.
-
-
-
+## Outputs
+- S3 Website Endpoint: direct access to static website
+- CloudFront Distribution URL: globally cached website address
